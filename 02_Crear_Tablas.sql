@@ -1,0 +1,31 @@
+CREATE TABLE Productos (
+	ID_producto INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	descripcion VARCHAR(100),
+	precio DECIMAL(10,2) NOT NULL,
+	stock INT NOT NULL,
+);
+
+CREATE TABLE Clientes (
+	ID_cliente INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	direccion VARCHAR(50) NOT NULL,
+	telefono VARCHAR(50) NOT NULL,
+	email VARCHAR(50)
+);
+
+CREATE TABLE Ventas (
+	ID_venta INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_cliente INT NOT NULL,
+	fecha DATETIME NOT NULL,
+	total DECIMAL(10,2) NOT NULL,
+	FOREIGN KEY (ID_cliente) REFERENCES clientes (ID_cliente)
+);
+
+CREATE TABLE DetallesVentas (
+	ID_detalle INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_venta INT NOT NULL,
+	ID_producto INT NOT NULL,
+	cantidad INT NOT NULL,
+	precio DECIMAL(10,2) NOT NULL,
+);

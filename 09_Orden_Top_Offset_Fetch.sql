@@ -1,0 +1,13 @@
+SELECT * FROM Clientes
+ORDER BY nombre  DESC;
+
+SELECT * FROM Productos
+ORDER BY nombre, stock;
+
+SELECT TOP 5 * FROM Productos;
+
+SELECT TOP 20 PERCENT * FROM Productos;
+
+SELECT * FROM Clientes
+ORDER BY ID_cliente
+OFFSET 5 ROWS FETCH NEXT 10 ROWS ONLY;

@@ -1,0 +1,15 @@
+SELECT
+	v.ID_venta,
+	v.fecha,
+	p.nombre AS Producto,
+	dv.cantidad,
+	dv.precio
+
+FROM
+	Ventas v
+RIGHT JOIN   -- Es como los datos de la derecha más interseccion en conjuntos
+	DetallesVentas dv ON v.ID_venta = dv.ID_venta
+RIGHT JOIN   -- Es como los datos de la derecha más interseccion en conjuntos
+	Productos p ON dv.ID_producto = p.ID_producto;
+
+SELECT * FROM ventas;

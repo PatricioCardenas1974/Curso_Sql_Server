@@ -1,0 +1,2 @@
+DELETE FROM Autores
+WHERE ID_Autor NOT IN (SELECT ID_Autor FROM Libros);
